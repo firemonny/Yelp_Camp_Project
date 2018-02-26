@@ -1,0 +1,31 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+        <h1>Welcome To Taiwan Camp</h1>
+        <p>View all the interesting place in Taiwan</p>
+        <p>
+            <a class="btn btn-primary btn-lg" href="/campgrounds/new">Add new campground</a>
+        </p>
+        </div>
+    </header>
+     <h3>The most good place in Taiwan</h3>
+     <!--/*The style is fixing the grid system*/-->
+    <div class="row text-center" style="display:flex; flex-wrap:wrap;"> 
+        <% campgrounds.forEach(function(campground){ %>
+        <div class="col-md-3 col-sm-6">  
+            <div class="thumbnail">
+                <img src="<%= campground.image%>">
+                <div class="caption">
+                <h4><%= campground.name %> </h4> 
+                </div>
+                <p>
+                    <a href="/campgrounds/<%= campground._id %>" class"btn btn-primary">More Detail</a>
+                </p>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</div>
+<% include ../partials/footer.ejs %>
