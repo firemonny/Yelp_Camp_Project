@@ -14,7 +14,9 @@ var campgroundRoutes = require("./routes/campgrounds");
 var commetRoutes = require("./routes/comments");
 var flash= require("connect-flash");
 
-mongoose.connect(process.env.DATABASEURL)
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
+
+mongoose.connect(url);
 
 //seedDB();
 
