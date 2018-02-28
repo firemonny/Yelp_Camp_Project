@@ -1,6 +1,7 @@
 var mongoose =require("mongoose");
 var Campground = require("./models/campground");
 var Comment    = require("./models/comment");
+var User = require("./models/user")
 
 var data = [
     {name:"Taichung",
@@ -22,9 +23,10 @@ var data = [
 //This function is remove all the data in the database.
 function seedDB(){
     Campground.remove({},function(err){
- if(err){
+   if(err){
      console.log(err);
-    }
+    };
+    
     //  console.log("remove completely.");
     //  data.forEach(function(seed){
     //     //add few campgrounds
@@ -55,7 +57,11 @@ function seedDB(){
     
     // });
     });
-    
+  User.remove({},function(err){
+  if(err){
+     console.log(err);
+    }
+    });  
 }
 
 module.exports = seedDB;
